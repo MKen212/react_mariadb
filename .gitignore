@@ -129,5 +129,12 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# React
+.DS_Store
+
+# React Router
+.react-router/
+build/
+
 # Local Files
 _localFiles/
