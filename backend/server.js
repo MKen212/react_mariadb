@@ -4,13 +4,15 @@ const dotenvConfig = Dotenv.config();
 if (dotenvConfig.error) console.log(dotenvConfig.error);
 // console.log(process.env);
 
-// Set-up Express Server
+// Set-up Express Server with CORS
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const port = process.env.REACTMDB_EXPPORT || 3000;
 
-// Allow JSON POST requests to Express Server
+// Allow JSON POST requests to Express Server & Setup CORS
 app.use(express.json());
+app.use(cors());
 
 // Set-up Database Connection
 const mariadb = require("mariadb/callback");
