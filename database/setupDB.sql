@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   `BookID` INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `Title` VARCHAR(45) NOT NULL UNIQUE,
   `Description` VARCHAR(255) NOT NULL,
-  `CoverFilename` VARCHAR(45)
+  `CoverFilename` VARCHAR(45),
+  `Price` DECIMAL(10, 2) DEFAULT 0.00 
 );
 

@@ -6,7 +6,7 @@ import UpdateBook from "./UpdateBook";
 function App() {
   return (
     <>
-      <div>
+      <div className="App">
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<ListBooks/>}/>

@@ -39,17 +39,29 @@ app.get("/books", (req, res) => {
 
 // Add Book
 app.post("/books", (req, res) => {
-  const sql = "INSERT INTO books (`Title`, `Description`, `CoverFilename`) VALUES (?)";
-  // const values = ["myTitle3", "myDesc3", "myFilename3"];
+  const sql = "INSERT INTO books (`Title`, `Description`, `CoverFilename`, `Price`) VALUES (?)";
+  // const values = ["Backend Title", "Backend Desription", "BackendFilename.jpg", "9.99"];
   const values = [
     req.body.title,
     req.body.description,
-    req.body.coverFilename
+    req.body.coverFilename,
+    req.body.price
   ];
   conn.query(sql, [values], (err, data) => {
     if (err) return res.json(err);
     // console.log(data);
     return res.json("Book has been added successfully.");
+  });
+});
+
+// Delete Book
+app.delete("/books/:id", (req, res) => {
+  const bookID = req.params.id;
+  const sql = "DELETE FROM books WHERE BookID = ?";
+  conn.query(sql, [bookID], (err, data) => {
+    if (err) return res.json(err);
+    console.log(data);
+    return res.json("Book has been deleted successfully.");
   });
 });
 
