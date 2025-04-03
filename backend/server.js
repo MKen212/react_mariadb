@@ -65,6 +65,24 @@ app.delete("/books/:id", (req, res) => {
   });
 });
 
+// Update Book
+app.put("/books/:id", (req, res) => {
+  const bookID = req.params.id;
+  const sql = "UPDATE books SET `Title` = ?, `Description` = ?, `CoverFilename` = ?, `Price` = ? WHERE BookID = ?";
+  const values = [
+    req.body.title,
+    req.body.description,
+    req.body.coverFilename,
+    req.body.price,
+  ];
+  conn.query(sql, [...values, bookID], (err, data) => {
+    if (err) return res.json(err);
+    console.log(data);
+    return res.json("Book has been updated successfully.");
+  });
+});
+
+
 // Start Express Server
 app.listen(port, () => {
   console.log(`Connected to backend on port: ${port}...`);

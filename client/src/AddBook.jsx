@@ -35,7 +35,7 @@ const AddBook = () => {
       <input type="text" name="coverFilename" id="coverFilename" placeholder="Cover Filename" onChange={handleChange} />
       <input type="number" min={0.00} step={0.01} name="price" id="price" placeholder="Price" onChange={handleChange} />
 
-      <button type="submit" onClick={handleClick}>Add</button>
+      <button className="formButton" type="submit" onClick={handleClick}>Add</button>
     </div>
   );
 };

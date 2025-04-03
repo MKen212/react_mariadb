@@ -41,7 +41,7 @@ const ListBooks = () => {
               <p>{book.Description}</p>
               <span>CHF {book.Price}</span>
               <button className="delete" onClick={() => handleDelete(book.BookID)}>Delete</button>
-              <button className="update">Update</button>
+              <button className="update"><Link to={`/update/${book.BookID}`}>Update</Link></button>
             </div>
           );
         })}
